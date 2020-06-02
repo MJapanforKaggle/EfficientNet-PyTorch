@@ -260,6 +260,7 @@ class EfficientNet(nn.Module):
         x = self._avg_pooling(x)
         x = x.view(bs, -1)
         x = self._dropout(x)
+        x = torch.flatten(x)
         x = self._fc(x)
 
         return x
